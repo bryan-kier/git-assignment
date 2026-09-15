@@ -1,7 +1,8 @@
 /* Shared baseline for the lower-fidelity Phase 6 screens (PDP, Checkout,
    Admin) — same design tokens as the homepage, plainer layout. */
 .simple-page {
-  padding-block: 64px 120px;
+  /* Nav is fixed/overlaid, so this is the only thing clearing it now. */
+  padding-block: calc(var(--nav-h) + 24px) 120px;
   min-height: 60vh;
 }
 .simple-page h1 {
