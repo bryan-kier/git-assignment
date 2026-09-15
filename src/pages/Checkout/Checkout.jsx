@@ -32,10 +32,6 @@ export default function Checkout() {
   return (
     <main className="wrap simple-page checkout">
       <h1>Review &amp; Pay</h1>
-      <p className="simple-note">
-        Static preview only — cart validation, live shipping quotes (EasyParcel), and payment intents come with the
-        backend.
-      </p>
 
       <div className="checkout-grid">
         <div className="checkout-main">
