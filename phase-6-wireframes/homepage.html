@@ -1,0 +1,1056 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Kitroom Homepage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&display=swap" />
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #0c0a0c;
+    --bg-raised: #131013;
+    --surface: #171317;
+    --surface-2: #201a1e;
+    --surface-3: #2a2226;
+    --border: #2e262a;
+    --border-soft: #221c1f;
+    --text: #f4efe9;
+    --text-muted: #a79fa4;
+    --text-faint: #6f676c;
+    --accent: #e5163f;
+    --accent-hover: #ff2d56;
+    --accent-dim: #591320;
+    --accent-soft: rgba(229, 22, 63, 0.14);
+    --success: #38c98f;
+    --success-soft: rgba(56, 201, 143, 0.14);
+    --warning: #e6a53a;
+    --warning-soft: rgba(230, 165, 58, 0.14);
+    --info: #6fa2d8;
+    --info-soft: rgba(111, 162, 216, 0.14);
+    --font-display: 'Anton', 'Archivo Black', Impact, sans-serif;
+    --font-body: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    --nav-h: 76px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+  ::selection { background: var(--accent); color: #fff; }
+
+  .wrap {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding-inline: 32px;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .eyebrow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 100;
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background-color 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
+  }
+  .nav--solid {
+    background: rgba(12, 10, 12, 0.86);
+    backdrop-filter: blur(10px) saturate(140%);
+    border-bottom-color: var(--border-soft);
+  }
+  .nav .wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+  }
+  .logo span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--text-muted);
+    position: relative;
+    padding-block: 6px;
+  }
+  .nav-links a:hover,
+  .nav-links a:focus-visible { color: var(--text); }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+  .nav-links a:hover::after,
+  .nav-links a:focus-visible::after { transform: scaleX(1); }
+
+  .nav-actions { display: flex; align-items: center; gap: 18px; }
+  .icon-btn {
+    background: none;
+    border: none;
+    color: var(--text);
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    position: relative;
+  }
+  .icon-btn:hover { background: var(--surface-2); }
+  .icon-btn .badge {
+    position: absolute;
+    top: -2px; right: -2px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.62rem;
+    font-weight: 700;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    padding-inline: 2px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    padding: 13px 24px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+  .btn-ghost { border-color: var(--border); color: var(--text); background: transparent; }
+  .btn-ghost:hover { border-color: var(--text-muted); background: var(--surface-2); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    padding-top: 96px;
+    padding-bottom: 140px;
+    overflow: hidden;
+  }
+  .hero-ghost {
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-display);
+    font-size: clamp(6rem, 19vw, 16rem);
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(244, 239, 233, 0.08);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+    user-select: none;
+  }
+  .hero-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.8fr);
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-copy { padding-top: 10px; }
+  .hero-copy .eyebrow { margin-bottom: 22px; }
+  .hero-title {
+    font-size: clamp(2.8rem, 5.6vw, 5rem);
+    line-height: 0.98;
+  }
+  .hero-title .accent-line { color: var(--accent); }
+  .hero-sub {
+    margin-top: 26px;
+    max-width: 46ch;
+    font-size: 1.06rem;
+    color: var(--text-muted);
+  }
+  .hero-cta { display: flex; align-items: center; gap: 18px; margin-top: 36px; flex-wrap: wrap; }
+  .hero-cta .link-arrow {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 3px;
+  }
+  .hero-cta .link-arrow:hover { border-color: var(--text); }
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border-soft);
+  }
+  .hero-stats div strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .hero-stats div span {
+    font-size: 0.76rem;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-visual {
+    position: relative;
+    height: 460px;
+  }
+
+  /* ---- Jersey render (shared SVG-based product graphic) ---- */
+  .jersey-render {
+    display: block;
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 26px 40px rgba(0,0,0,0.55));
+    overflow: visible;
+  }
+  .jersey-fill {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .jersey-fill--diagonal {
+    background: linear-gradient(115deg,
+      var(--fill-a) 0%, var(--fill-a) 40%,
+      var(--fill-b) 40%, var(--fill-b) 48%,
+      var(--fill-a) 48%, var(--fill-a) 62%,
+      var(--fill-b) 62%, var(--fill-b) 70%,
+      var(--fill-a) 70%, var(--fill-a) 100%);
+  }
+  .jersey-fill--yoke { background: var(--fill-a); }
+  .jersey-fill--yoke .seam {
+    position: absolute; left: 0; right: 0; top: 32%;
+    height: 3.5%;
+    background: var(--fill-b);
+  }
+  .jersey-fill--yoke .yoke-top {
+    position: absolute; left: 0; right: 0; top: 0; height: 32%;
+    background: var(--fill-b);
+  }
+  .jersey-fill--panel { background: var(--fill-a); }
+  .jersey-fill--panel .panel-stripe {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 15%;
+    background: var(--fill-b);
+  }
+  .jersey-collar-use { color: var(--text); }
+  .jersey-crest-use { color: var(--text); }
+  .jersey-sponsor-text {
+    font-family: var(--font-display);
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-anchor: middle;
+    fill: var(--text);
+    opacity: 0.9;
+  }
+  .jersey-number-tag {
+    font-family: var(--font-display);
+    font-size: 30px;
+    text-anchor: middle;
+    fill: rgba(255,255,255,0.45);
+  }
+
+  .hero-jersey-1 {
+    position: absolute;
+    width: 250px; height: 300px;
+    top: 10px; right: 40px;
+    transform: rotate(6deg) translateY(var(--ty, 0px));
+  }
+  .hero-jersey-2 {
+    position: absolute;
+    width: 182px; height: 218px;
+    bottom: 0; left: 0;
+    transform: rotate(-10deg) translateY(var(--ty, 0px));
+  }
+  .hero-badge {
+    position: absolute;
+    bottom: 46px; right: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 20px 40px -18px rgba(0,0,0,0.7);
+    transform: translateY(var(--ty, 0px));
+  }
+  .hero-badge .dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 4px var(--success-soft);
+    flex-shrink: 0;
+  }
+  .hero-badge strong { display: block; font-size: 0.82rem; }
+  .hero-badge span { font-size: 0.74rem; color: var(--text-faint); }
+
+  .scroll-cue {
+    position: absolute;
+    left: 50%; bottom: 36px;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: var(--text-faint);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .scroll-cue .line {
+    width: 1px; height: 34px;
+    background: linear-gradient(var(--text-faint), transparent);
+    animation: scrollcue 1.8s ease-in-out infinite;
+  }
+  @keyframes scrollcue { 0%,100% { opacity:.2; transform: scaleY(.6); } 50% { opacity:1; transform: scaleY(1); } }
+
+  /* ---------- SECTION COMMON ---------- */
+  section { position: relative; }
+  .section-pad { padding-block: 100px; }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .section-head h2 { font-size: clamp(1.9rem, 3vw, 2.6rem); }
+  .section-head p { color: var(--text-muted); max-width: 44ch; margin-top: 10px; }
+
+  .reveal { opacity: 1; transform: none; transition: opacity 0.7s ease, transform 0.7s ease; }
+  .js-anim .reveal { opacity: 0; transform: translateY(28px); }
+  .js-anim .reveal.is-visible { opacity: 1; transform: none; }
+
+  /* ---------- CATEGORIES ---------- */
+  .categories { background: var(--bg-raised); border-block: 1px solid var(--border-soft); }
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .cat-card {
+    position: relative;
+    height: 320px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: linear-gradient(150deg, var(--surface-2), var(--surface));
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .cat-card:hover { transform: translateY(-6px); border-color: var(--accent-dim); }
+  .cat-card .cat-mark {
+    position: absolute;
+    top: 22px; right: 22px;
+    font-family: var(--font-display);
+    font-size: 4rem;
+    color: rgba(244,239,233,0.05);
+    line-height: 1;
+  }
+  .cat-card h3 { font-size: 1.5rem; margin-bottom: 8px; }
+  .cat-card p { color: var(--text-muted); font-size: 0.9rem; margin: 0 0 14px; }
+  .cat-card .cat-link {
+    font-size: 0.76rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .cat-card .cat-link svg { transition: transform 0.2s ease; }
+  .cat-card:hover .cat-link svg { transform: translateX(4px); }
+
+  /* ---------- DROPS ---------- */
+  .drop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 24px;
+  }
+  .drop-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface);
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .drop-card:hover { transform: translateY(-4px); border-color: var(--border); box-shadow: 0 24px 50px -28px rgba(0,0,0,0.7); }
+  .drop-visual {
+    height: 220px;
+    background: var(--surface-2);
+    display: grid;
+    place-items: center;
+    position: relative;
+  }
+  .drop-visual .jersey-render { width: 132px; height: 158px; }
+  .stock-pill {
+    position: absolute;
+    top: 14px; left: 14px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 999px;
+  }
+  .stock-instock { background: var(--success-soft); color: var(--success); }
+  .stock-low { background: var(--warning-soft); color: var(--warning); }
+  .stock-preorder { background: var(--info-soft); color: var(--info); }
+  .drop-info { padding: 18px 20px 22px; }
+  .drop-info .tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-faint); }
+  .drop-info h3 { font-family: var(--font-body); font-weight: 700; font-size: 1rem; text-transform: none; margin-top: 6px; }
+  .drop-info .price-row {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 14px;
+  }
+  .drop-info .price { font-family: var(--font-display); font-size: 1.3rem; font-variant-numeric: tabular-nums; }
+  .drop-info .price small { font-family: var(--font-body); font-size: 0.7rem; color: var(--text-faint); font-weight: 600; }
+  .add-btn {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    display: grid; place-items: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  .add-btn:hover { background: var(--accent); border-color: var(--accent); }
+  .drops-foot { display: flex; justify-content: center; margin-top: 48px; }
+
+  /* ---------- TRUST ---------- */
+  .trust { background: var(--bg-raised); border-block: 1px solid var(--border-soft); }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+    gap: 28px;
+  }
+  .trust-item .num { font-family: var(--font-display); font-size: 1.1rem; color: var(--accent); display: block; margin-bottom: 16px; }
+  .trust-item h3 { font-family: var(--font-body); font-weight: 700; font-size: 1.02rem; text-transform: none; margin-bottom: 8px; }
+  .trust-item p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+
+  /* ---------- NEWSLETTER ---------- */
+  .newsletter-band {
+    border-radius: 24px;
+    background: radial-gradient(120% 160% at 15% 20%, var(--accent-dim), var(--surface) 60%);
+    border: 1px solid var(--border);
+    padding: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .newsletter-band h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); max-width: 14ch; }
+  .newsletter-band p { color: var(--text-muted); margin-top: 10px; max-width: 40ch; }
+  .newsletter-form { display: flex; gap: 10px; flex-wrap: wrap; }
+  .newsletter-form input {
+    background: rgba(12,10,12,0.55);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 14px 20px;
+    color: var(--text);
+    font-size: 0.9rem;
+    min-width: 250px;
+  }
+  .newsletter-form input::placeholder { color: var(--text-faint); }
+  .newsletter-form input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .newsletter-msg { font-size: 0.8rem; color: var(--success); margin-top: 10px; }
+
+  /* ---------- FOOTER ---------- */
+  footer { border-top: 1px solid var(--border-soft); padding-top: 72px; padding-bottom: 40px; }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr repeat(3, 1fr);
+    gap: 40px;
+    padding-bottom: 48px;
+  }
+  .foot-brand .logo { margin-bottom: 14px; }
+  .foot-brand p { color: var(--text-muted); max-width: 32ch; font-size: 0.9rem; }
+  .foot-col h4 {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--text-faint); margin-bottom: 16px; font-weight: 700;
+  }
+  .foot-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+  .foot-col a { font-size: 0.88rem; color: var(--text-muted); }
+  .foot-col a:hover { color: var(--text); }
+  .foot-bottom {
+    border-top: 1px solid var(--border-soft);
+    padding-top: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.78rem;
+    color: var(--text-faint);
+  }
+  .foot-bottom .placeholder-note {
+    color: var(--warning);
+    border: 1px dashed var(--warning);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 980px) {
+    .nav-links { display: none; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-visual { height: 320px; }
+    .cat-grid, .drop-grid { grid-template-columns: repeat(2, 1fr); }
+    .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    .foot-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 620px) {
+    .wrap { padding-inline: 20px; }
+    .cat-grid, .drop-grid, .trust-grid, .foot-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 22px; flex-wrap: wrap; }
+    .newsletter-band { padding: 32px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <clipPath id="jerseyOutline" clipPathUnits="userSpaceOnUse">
+        <path d="M92,2 Q120,26 148,2 L168,10 L205,6 L236,58 L198,82 L198,296 L42,296 L42,82 L4,58 L35,6 L72,10 Z" />
+      </clipPath>
+      <path id="jerseyCollar" d="M86,-2 Q120,24 154,-2" />
+      <symbol id="jerseyCrest" viewBox="0 0 26 32">
+        <path d="M1,1 H25 V16 C25,24 19,29 13,31 C7,29 1,24 1,16 Z" fill="none" stroke="currentColor" stroke-width="1.6" />
+        <path d="M9,9 L11,7 L13,9 L15,7 L17,9 L15,11 L15,23 L11,23 L11,11 Z" fill="none" stroke="currentColor" stroke-width="1.1" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <header class="nav" id="nav">
+    <div class="wrap">
+      <a class="logo" href="#top">KIT<span>ROOM</span></a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#drops">Football Kits</a></li>
+          <li><a href="#drops">Basketball Jerseys</a></li>
+          <li><a href="#drops">Streetwear</a></li>
+          <li><a href="#drops">Pre-Orders</a></li>
+          <li><a href="#trust">About Sourcing</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Account">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-6 8-6s8 2 8 6"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Cart, 2 items">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1.4"/><circle cx="18" cy="21" r="1.4"/><path d="M2.5 3h2.6l2.7 12.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 7H6"/></svg>
+          <span class="badge">2</span>
+        </button>
+        <a href="#drops" class="btn btn-primary">Shop New Drops</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-ghost" aria-hidden="true">KITROOM</div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">New Imports Weekly &mdash; PH Wide Shipping</span>
+          <h1 class="hero-title">THE KITS<br />YOUR CITY<br /><span class="accent-line">DOESN'T STOCK.</span></h1>
+          <p class="hero-sub">We source football kits, basketball jerseys, and streetwear straight from overseas sellers &mdash; so you don't have to bid on a stranger's auction or gamble on customs yourself.</p>
+          <div class="hero-cta">
+            <a href="#drops" class="btn btn-primary">Shop New Drops</a>
+            <a href="#trust" class="link-arrow">How Sourcing Works &rarr;</a>
+          </div>
+          <div class="hero-stats">
+            <div><strong>1,200+</strong><span>Kits Sourced</span></div>
+            <div><strong>38</strong><span>Clubs &amp; Teams</span></div>
+            <div><strong>4&ndash;9 Days</strong><span>PH Delivery</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-jersey-1" data-speed="0.12">
+            <svg class="jersey-render" viewBox="0 0 240 300" aria-hidden="true">
+              <g clip-path="url(#jerseyOutline)">
+                <foreignObject x="0" y="0" width="240" height="300">
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="jersey-fill jersey-fill--diagonal" style="--fill-a:var(--surface-3); --fill-b:var(--bg-raised);"></div>
+                </foreignObject>
+              </g>
+              <use href="#jerseyCollar" class="jersey-collar-use" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
+              <use href="#jerseyCrest" x="54" y="74" width="24" height="30" class="jersey-crest-use" />
+              <text x="120" y="168" class="jersey-sponsor-text">SPONSOR</text>
+              <text x="120" y="255" class="jersey-number-tag">7</text>
+            </svg>
+          </div>
+          <div class="hero-jersey-2" data-speed="0.22">
+            <svg class="jersey-render" viewBox="0 0 240 300" aria-hidden="true">
+              <g clip-path="url(#jerseyOutline)">
+                <foreignObject x="0" y="0" width="240" height="300">
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="jersey-fill jersey-fill--panel" style="--fill-a:var(--accent-hover); --fill-b:var(--accent-dim);">
+                    <div class="panel-stripe"></div>
+                  </div>
+                </foreignObject>
+              </g>
+              <use href="#jerseyCollar" class="jersey-collar-use" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
+              <use href="#jerseyCrest" x="54" y="74" width="24" height="30" class="jersey-crest-use" />
+              <text x="120" y="168" class="jersey-sponsor-text">SPONSOR</text>
+              <text x="120" y="255" class="jersey-number-tag">9</text>
+            </svg>
+          </div>
+          <div class="hero-badge" data-speed="0.06">
+            <span class="dot"></span>
+            <div><strong>Derby Night Kit</strong><span>Restocked 2 hours ago</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
+    </section>
+
+    <section class="categories section-pad" id="categories">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Shop by Category</h2>
+          <p>Three lanes, one source &mdash; club football, basketball, and the streetwear that lives outside both.</p>
+        </div>
+        <div class="cat-grid">
+          <article class="cat-card reveal">
+            <span class="cat-mark">01</span>
+            <h3>Football Kits</h3>
+            <p>Home, away, and third kits sourced pre-season through post-season.</p>
+            <a class="cat-link" href="#drops">Browse Kits
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+          <article class="cat-card reveal">
+            <span class="cat-mark">02</span>
+            <h3>Basketball Jerseys</h3>
+            <p>Player-issue cuts and retro throwbacks you won't find on local racks.</p>
+            <a class="cat-link" href="#drops">Browse Jerseys
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+          <article class="cat-card reveal">
+            <span class="cat-mark">03</span>
+            <h3>Streetwear &amp; Collabs</h3>
+            <p>Limited drops and collector pieces, sourced in small, honest batches.</p>
+            <a class="cat-link" href="#drops">Browse Streetwear
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="drops section-pad" id="drops">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Featured Drops</h2>
+          <p>Fresh imports and restocks, updated as our overseas sellers confirm stock.</p>
+        </div>
+        <div class="drop-grid">
+
+          <article class="drop-card reveal">
+            <div class="drop-visual">
+              <span class="stock-pill stock-instock">In Stock</span>
+              <svg class="jersey-render" viewBox="0 0 240 300" aria-hidden="true">
+                <g clip-path="url(#jerseyOutline)">
+                  <foreignObject x="0" y="0" width="240" height="300">
+                    <div xmlns="http://www.w3.org/1999/xhtml" class="jersey-fill jersey-fill--diagonal" style="--fill-a:var(--surface-3); --fill-b:var(--bg-raised);"></div>
+                  </foreignObject>
+                </g>
+                <use href="#jerseyCollar" class="jersey-collar-use" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
+                <use href="#jerseyCrest" x="54" y="74" width="24" height="30" class="jersey-crest-use" />
+                <text x="120" y="168" class="jersey-sponsor-text">SPONSOR</text>
+                <text x="120" y="255" class="jersey-number-tag">10</text>
+              </svg>
+            </div>
+            <div class="drop-info">
+              <span class="tag">Football Kits</span>
+              <h3>Continental Cup Home Kit</h3>
+              <div class="price-row">
+                <span class="price">&#8369;3,450 <small>PHP</small></span>
+                <button class="add-btn" aria-label="Add to cart">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="drop-card reveal">
+            <div class="drop-visual">
+              <span class="stock-pill stock-preorder">Pre-Order</span>
+              <svg class="jersey-render" viewBox="0 0 240 300" aria-hidden="true">
+                <g clip-path="url(#jerseyOutline)">
+                  <foreignObject x="0" y="0" width="240" height="300">
+                    <div xmlns="http://www.w3.org/1999/xhtml" class="jersey-fill jersey-fill--panel" style="--fill-a:var(--accent-hover); --fill-b:var(--accent-dim);">
+                      <div class="panel-stripe"></div>
+                    </div>
+                  </foreignObject>
+                </g>
+                <use href="#jerseyCollar" class="jersey-collar-use" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
+                <use href="#jerseyCrest" x="54" y="74" width="24" height="30" class="jersey-crest-use" />
+                <text x="120" y="168" class="jersey-sponsor-text">SPONSOR</text>
+                <text x="120" y="255" class="jersey-number-tag">23</text>
+              </svg>
+            </div>
+            <div class="drop-info">
+              <span class="tag">Football Kits</span>
+              <h3>Derby Night Away Kit</h3>
+              <div class="price-row">
+                <span class="price">&#8369;3,200 <small>PHP</small></span>
+                <button class="add-btn" aria-label="Add to cart">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="drop-card reveal">
+            <div class="drop-visual">
+              <span class="stock-pill stock-low">Low Stock</span>
+              <svg class="jersey-render" viewBox="0 0 240 300" aria-hidden="true">
+                <g clip-path="url(#jerseyOutline)">
+                  <foreignObject x="0" y="0" width="240" height="300">
+                    <div xmlns="http://www.w3.org/1999/xhtml" class="jersey-fill jersey-fill--yoke" style="--fill-a:var(--surface-2); --fill-b:var(--surface-3);">
+                      <div class="yoke-top"></div>
+                      <div class="seam"></div>
+                    </div>
+                  </foreignObject>
+                </g>
+                <use href="#jerseyCollar" class="jersey-collar-use" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
+                <use href="#jerseyCrest" x="54" y="74" width="24" height="30" class="jersey-crest-use" />
+                <text x="120" y="168" class="jersey-sponsor-text">SPONSOR</text>
+                <text x="120" y="255" class="jersey-number-tag">5</text>
+              </svg>
+            </div>
+            <div class="drop-info">
+              <span class="tag">Basketball Jerseys</span>
+              <h3>City Rivals Third Kit</h3>
+              <div class="price-row">
+                <span class="price">&#8369;3,600 <small>PHP</small></span>
+                <button class="add-btn" aria-label="Add to cart">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="drop-card reveal">
+            <div class="drop-visual">
+              <span class="stock-pill stock-instock">In Stock</span>
+              <svg class="jersey-render" viewBox="0 0 240 300" aria-hidden="true">
+                <g clip-path="url(#jerseyOutline)">
+                  <foreignObject x="0" y="0" width="240" height="300">
+                    <div xmlns="http://www.w3.org/1999/xhtml" class="jersey-fill jersey-fill--diagonal" style="--fill-a:var(--surface-2); --fill-b:var(--bg-raised);"></div>
+                  </foreignObject>
+                </g>
+                <use href="#jerseyCollar" class="jersey-collar-use" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
+                <use href="#jerseyCrest" x="54" y="74" width="24" height="30" class="jersey-crest-use" />
+                <text x="120" y="168" class="jersey-sponsor-text">SPONSOR</text>
+                <text x="120" y="255" class="jersey-number-tag">11</text>
+              </svg>
+            </div>
+            <div class="drop-info">
+              <span class="tag">Streetwear</span>
+              <h3>Classic Retro Pullover</h3>
+              <div class="price-row">
+                <span class="price">&#8369;2,850 <small>PHP</small></span>
+                <button class="add-btn" aria-label="Add to cart">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="drop-card reveal">
+            <div class="drop-visual">
+              <span class="stock-pill stock-preorder">Pre-Order</span>
+              <svg class="jersey-render" viewBox="0 0 240 300" aria-hidden="true">
+                <g clip-path="url(#jerseyOutline)">
+                  <foreignObject x="0" y="0" width="240" height="300">
+                    <div xmlns="http://www.w3.org/1999/xhtml" class="jersey-fill jersey-fill--panel" style="--fill-a:var(--surface-3); --fill-b:var(--bg-raised);">
+                      <div class="panel-stripe"></div>
+                    </div>
+                  </foreignObject>
+                </g>
+                <use href="#jerseyCollar" class="jersey-collar-use" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
+                <use href="#jerseyCrest" x="54" y="74" width="24" height="30" class="jersey-crest-use" />
+                <text x="120" y="168" class="jersey-sponsor-text">SPONSOR</text>
+                <text x="120" y="255" class="jersey-number-tag">32</text>
+              </svg>
+            </div>
+            <div class="drop-info">
+              <span class="tag">Basketball Jerseys</span>
+              <h3>Player-Issue Practice Jersey</h3>
+              <div class="price-row">
+                <span class="price">&#8369;4,100 <small>PHP</small></span>
+                <button class="add-btn" aria-label="Add to cart">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="drop-card reveal">
+            <div class="drop-visual">
+              <span class="stock-pill stock-instock">In Stock</span>
+              <svg class="jersey-render" viewBox="0 0 240 300" aria-hidden="true">
+                <g clip-path="url(#jerseyOutline)">
+                  <foreignObject x="0" y="0" width="240" height="300">
+                    <div xmlns="http://www.w3.org/1999/xhtml" class="jersey-fill jersey-fill--yoke" style="--fill-a:var(--surface-2); --fill-b:var(--accent-dim);">
+                      <div class="yoke-top"></div>
+                      <div class="seam"></div>
+                    </div>
+                  </foreignObject>
+                </g>
+                <use href="#jerseyCollar" class="jersey-collar-use" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
+                <use href="#jerseyCrest" x="54" y="74" width="24" height="30" class="jersey-crest-use" />
+                <text x="120" y="168" class="jersey-sponsor-text">SPONSOR</text>
+                <text x="120" y="255" class="jersey-number-tag">4</text>
+              </svg>
+            </div>
+            <div class="drop-info">
+              <span class="tag">Streetwear</span>
+              <h3>Vintage Warm-Up Track Top</h3>
+              <div class="price-row">
+                <span class="price">&#8369;2,600 <small>PHP</small></span>
+                <button class="add-btn" aria-label="Add to cart">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        <div class="drops-foot reveal">
+          <a href="#drops" class="btn btn-ghost">View All Drops</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust section-pad" id="trust">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Why Buy Through Kitroom</h2>
+          <p>Importing solo means bidding blind on eBay and hoping customs behaves. Here's what changes when we do it for you.</p>
+        </div>
+        <div class="trust-grid">
+          <div class="trust-item reveal">
+            <span class="num">01</span>
+            <h3>No Overseas Guesswork</h3>
+            <p>We deal directly with vetted sellers, so you're not the one gambling on a stranger's listing.</p>
+          </div>
+          <div class="trust-item reveal">
+            <span class="num">02</span>
+            <h3>Real Stock, Real Status</h3>
+            <p>Every kit shows honest availability &mdash; in stock, low stock, or pre-order &mdash; before you pay.</p>
+          </div>
+          <div class="trust-item reveal">
+            <span class="num">03</span>
+            <h3>PH-Wide Delivery</h3>
+            <p>Shipped through our local courier partners straight to your door, no customs forms to chase.</p>
+          </div>
+          <div class="trust-item reveal">
+            <span class="num">04</span>
+            <h3>Restock Alerts</h3>
+            <p>Follow a kit that's sold out and we'll notify you the moment it's back in the queue.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="newsletter">
+      <div class="wrap">
+        <div class="newsletter-band reveal">
+          <div>
+            <h2>Never Miss a Restock.</h2>
+            <p>Get a heads-up the moment a followed kit, size, or team comes back in stock.</p>
+          </div>
+          <div>
+            <form class="newsletter-form" id="newsletter-form">
+              <label for="newsletter-email" class="visually-hidden" style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);">Email address</label>
+              <input type="email" id="newsletter-email" placeholder="you@email.com" required />
+              <button type="submit" class="btn btn-primary">Notify Me</button>
+            </form>
+            <p class="newsletter-msg" id="newsletter-msg" hidden>You're on the list &mdash; watch your inbox.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a class="logo" href="#top">KIT<span>ROOM</span></a>
+          <p>Sports fashion, sourced overseas and delivered across the Philippines &mdash; so you don't have to be the one importing it.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="#drops">Football Kits</a></li>
+            <li><a href="#drops">Basketball Jerseys</a></li>
+            <li><a href="#drops">Streetwear</a></li>
+            <li><a href="#drops">Pre-Orders</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">Shipping &amp; Delivery</a></li>
+            <li><a href="#">Track My Order</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#trust">Our Sourcing Process</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; <span id="year"></span> Kitroom. Shipping within the Philippines only.</span>
+        <span class="placeholder-note">Brand name &amp; logo placeholder &mdash; pending Phase 1</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav = document.getElementById('nav');
+
+  function onScroll() {
+    if (window.scrollY > 40) nav.classList.add('nav--solid');
+    else nav.classList.remove('nav--solid');
+
+    if (!reduceMotion) {
+      var y = window.scrollY;
+      document.querySelectorAll('.hero-visual [data-speed]').forEach(function (el) {
+        var speed = parseFloat(el.getAttribute('data-speed')) || 0;
+        el.style.setProperty('--ty', (y * speed) + 'px');
+      });
+    }
+  }
+
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () { onScroll(); ticking = false; });
+      ticking = true;
+    }
+  }, { passive: true });
+  onScroll();
+
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    document.body.classList.add('js-anim');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  }
+
+  var form = document.getElementById('newsletter-form');
+  var msg = document.getElementById('newsletter-msg');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.hidden = false;
+    form.reset();
+  });
+</script>
+</body>
+</html>
