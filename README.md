@@ -37,15 +37,15 @@ src/
   lib/          publicAsset.js — base-URL-aware helper for public/ image paths
   styles/       design tokens and shared page styles
 public/
-  products/     real product photos go here, referenced by each product's `image` field
-                in products.js (currently null for all six — see Status below)
+  products/     real product photos, referenced by each product's `image` field
+                in products.js (currently soccer-kit mockups — see Status below)
   hero/         the hero background photo, referenced by HERO_BACKGROUND in media.js
 ```
 
 ## Status
 
 - **Homepage, Product Detail, Checkout, Admin** — all built and navigable. Homepage is full-fidelity (fixed overlaid nav, full-bleed hero background, parallax, scroll-reveal animations); the other three are intentionally simpler for now.
-- **Catalog** — six mock products across Team Jerseys, Hoodies & Fleece, and Tees & Tops. Every product's `image` is currently `null` (rendering the vector `JerseyGraphic` fallback): the product photos used earlier were soccer-kit mockups sourced before the group's Phase 1 concept was finalized as NFL apparel, so they no longer fit and were pulled rather than left inaccurate. Drop real NFL-appropriate product photos into `public/products/` and set the matching `image` field to switch a product over — no other code changes needed.
+- **Catalog** — six mock products across Team Jerseys, Hoodies & Fleece, and Tees & Tops. Each has a real photo, but they're the original soccer-kit mockups sourced before the group's Phase 1 concept was finalized as NFL apparel — the wrong sport, kept in place by request rather than reverted to the vector `JerseyGraphic` fallback. Swap in real NFL-appropriate photos whenever they exist by dropping them into `public/products/` and updating the matching `image` field — no other code changes needed.
 - **Hero background** — an AI-generated athlete/jersey action shot (kept from before the pivot; it's sport-neutral in tone — dark, dramatic, motion-blurred — so it still reads fine for an NFL storefront, but the visible jersey design itself isn't NFL-specific). Swappable the same way via `HERO_BACKGROUND` in `src/data/media.js`.
 - **Admin dashboard** — Overview tab has a 14-day revenue trend (hover/keyboard tooltip), an order-status breakdown, a top-products ranking, and stat tiles with period-over-period deltas, all on mock data; Inventory tab lists the catalog with stock status.
 - **Payment methods shown at checkout** — GCash, PayMaya, and Cash on Delivery. Worth double-checking against the group's final choice: the submitted paper names GCash/PayPal in the architecture section (4) but QRPH/PayMaya in Core Platform Features (3) — those two sections don't agree, so this picked the more specific, PH-focused pairing (GCash + PayMaya) rather than guessing which section is authoritative.

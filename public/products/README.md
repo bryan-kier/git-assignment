@@ -1,8 +1,11 @@
 # Product photos
 
-Empty for now — every product's `image` field in `src/data/products.js` is `null`, so all six
-render as the vector `JerseyGraphic` fallback. The photos used earlier were soccer-kit mockups
-from before the group's Phase 1 concept was finalized as NFL apparel, so they were pulled.
+All six catalog products use a real photo here, referenced by each product's `image` field
+in `src/data/products.js` (set via the `publicAsset()` helper).
 
-To add a real photo: drop the file in here, then set that product's `image` field to
-`publicAsset('products/<filename>')`. No other code changes needed.
+**Note:** these are the original uploaded photos — soccer-kit mockups, not NFL apparel. They
+were pulled during the pivot to the NFL-focused "100-Yard Apparel" concept for being the wrong
+sport, then restored by request despite the mismatch. Swap them for real NFL-appropriate photos
+whenever those exist: drop the file in here, then set that product's `image` field to
+`publicAsset('products/<filename>')`. Leaving `image` as `null` falls back to the vector
+`JerseyGraphic` render instead — no other code changes needed either way.

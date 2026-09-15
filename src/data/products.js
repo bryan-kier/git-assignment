@@ -1,11 +1,12 @@
+import { publicAsset } from '../lib/publicAsset';
+
 // Mock catalog data. No backend yet — this stands in for the Product & Catalog API
 // described in the Phase 4 architecture doc until that service exists.
 //
-// Each product's `image` is null until a real photo is dropped into
-// public/products/ (see the README there) — components fall back to the
-// vector JerseyGraphic render whenever `image` is null. Currently all null:
-// the earlier product photos were soccer-kit mockups from before the group's
-// Phase 1 concept was finalized as NFL apparel, so they no longer fit.
+// A product's `image` falls back to the vector JerseyGraphic render whenever
+// it's null. These six use the original uploaded photos, kept on by request
+// even though they're soccer-kit mockups, not NFL apparel — see
+// public/products/README.md.
 
 export const categories = [
   {
@@ -40,7 +41,7 @@ export const products = [
     pattern: 'diagonal',
     fillA: 'var(--surface-3)',
     fillB: 'var(--bg-raised)',
-    image: null,
+    image: publicAsset('products/sunday-showdown-home-jersey.jpeg'),
   },
   {
     id: 'primetime-away-jersey',
@@ -53,7 +54,7 @@ export const products = [
     pattern: 'panel',
     fillA: 'var(--accent-hover)',
     fillB: 'var(--accent-dim)',
-    image: null,
+    image: publicAsset('products/primetime-away-jersey.webp'),
   },
   {
     id: 'endzone-pullover-hoodie',
@@ -66,7 +67,7 @@ export const products = [
     pattern: 'yoke',
     fillA: 'var(--surface-2)',
     fillB: 'var(--surface-3)',
-    image: null,
+    image: publicAsset('products/endzone-pullover-hoodie.webp'),
   },
   {
     id: 'throwback-vintage-pullover',
@@ -79,7 +80,7 @@ export const products = [
     pattern: 'diagonal',
     fillA: 'var(--surface-2)',
     fillB: 'var(--bg-raised)',
-    image: null,
+    image: publicAsset('products/throwback-vintage-pullover.jpeg'),
   },
   {
     id: 'franchise-graphic-tee',
@@ -92,7 +93,7 @@ export const products = [
     pattern: 'panel',
     fillA: 'var(--surface-3)',
     fillB: 'var(--bg-raised)',
-    image: null,
+    image: publicAsset('products/franchise-graphic-tee.jpeg'),
   },
   {
     id: 'wild-card-graphic-tee',
@@ -105,7 +106,7 @@ export const products = [
     pattern: 'yoke',
     fillA: 'var(--surface-2)',
     fillB: 'var(--accent-dim)',
-    image: null,
+    image: publicAsset('products/wild-card-graphic-tee.jpeg'),
   },
 ];
 
