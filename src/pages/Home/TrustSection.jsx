@@ -10,7 +10,7 @@ const points = [
   {
     num: '02',
     title: 'Real Stock, Real Status',
-    body: 'Every kit shows honest availability — in stock, low stock, or pre-order — before you pay.',
+    body: 'Every item shows honest availability — in stock, low stock, or pre-order — before you pay.',
   },
   {
     num: '03',
@@ -20,7 +20,7 @@ const points = [
   {
     num: '04',
     title: 'Restock Alerts',
-    body: "Follow a kit that's sold out and we'll notify you the moment it's back in the queue.",
+    body: "Follow an item that's sold out and we'll notify you the moment it's back in the queue.",
   },
 ];
 
@@ -29,7 +29,7 @@ export default function TrustSection() {
     <section className="trust section-pad" id="trust">
       <div className="wrap">
         <Reveal as="div" className="section-head">
-          <h2>Why Buy Through Kitroom</h2>
+          <h2>Why Buy Through 100-Yard Apparel</h2>
           <p>
             Importing solo means bidding blind on eBay and hoping customs behaves. Here&apos;s what changes when we do
             it for you.

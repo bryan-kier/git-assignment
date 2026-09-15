@@ -18,7 +18,7 @@ export default function Newsletter() {
         <Reveal as="div" className="newsletter-band">
           <div>
             <h2>Never Miss a Restock.</h2>
-            <p>Get a heads-up the moment a followed kit, size, or team comes back in stock.</p>
+            <p>Get a heads-up the moment a followed item, size, or team comes back in stock.</p>
           </div>
           <div>
             <form className="newsletter-form" onSubmit={handleSubmit}>

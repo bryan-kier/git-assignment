@@ -8,21 +8,21 @@ export default function Footer() {
         <div className="foot-grid">
           <div className="foot-brand">
             <Link className="logo" to="/">
-              KIT<span>ROOM</span>
+              100<span>YARD</span>
             </Link>
-            <p>Sports fashion, sourced overseas and delivered across the Philippines — so you don't have to be the one importing it.</p>
+            <p>NFL apparel, sourced overseas and delivered across the Philippines — so you don't have to be the one importing it.</p>
           </div>
           <div className="foot-col">
             <h4>Shop</h4>
             <ul>
               <li>
-                <Link to="/">Football Kits</Link>
+                <Link to="/">Team Jerseys</Link>
               </li>
               <li>
-                <Link to="/">Basketball Jerseys</Link>
+                <Link to="/">Hoodies &amp; Fleece</Link>
               </li>
               <li>
-                <Link to="/">Streetwear</Link>
+                <Link to="/">Tees &amp; Tops</Link>
               </li>
               <li>
                 <Link to="/">Pre-Orders</Link>
@@ -62,8 +62,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="foot-bottom">
-          <span>&copy; {new Date().getFullYear()} Kitroom. Shipping within the Philippines only.</span>
-          <span className="placeholder-note">Brand name &amp; logo placeholder — pending Phase 1</span>
+          <span>&copy; {new Date().getFullYear()} 100-Yard Apparel. Shipping within the Philippines only.</span>
         </div>
       </div>
     </footer>

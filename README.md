@@ -1,6 +1,8 @@
-# Kitroom
+# 100-Yard Apparel
 
-Sports fashion, sourced overseas and delivered across the Philippines — a storefront for imported football kits, basketball jerseys, and streetwear. "Kitroom" is a placeholder name pending final branding.
+*"Built for the Bowl"*
+
+NFL apparel, sourced overseas and delivered across the Philippines — imported jerseys, hoodies, and game-day tops for Filipino NFL fans who can't get them locally. Built for ITMGT 45.03 (E-Commerce Fundamentals), Group Challenge 1 — see the full business concept brief in the group's submitted paper (target market: NFL fans aged 18–34, ₱20K–60K monthly income, based in Metro Manila, Cebu, and Davao).
 
 React front-end only for now — no backend yet (see below for the planned architecture).
 
@@ -35,13 +37,16 @@ src/
   lib/          publicAsset.js — base-URL-aware helper for public/ image paths
   styles/       design tokens and shared page styles
 public/
-  products/     real product photos, referenced by each product's `image` field in products.js
+  products/     real product photos go here, referenced by each product's `image` field
+                in products.js (currently null for all six — see Status below)
   hero/         the hero background photo, referenced by HERO_BACKGROUND in media.js
 ```
 
 ## Status
 
 - **Homepage, Product Detail, Checkout, Admin** — all built and navigable. Homepage is full-fidelity (fixed overlaid nav, full-bleed hero background, parallax, scroll-reveal animations); the other three are intentionally simpler for now.
-- **Product & hero imagery** — real photos for all six products and the hero background. `JerseyGraphic` (an SVG jersey render) is the automatic fallback for any product left with `image: null`.
+- **Catalog** — six mock products across Team Jerseys, Hoodies & Fleece, and Tees & Tops. Every product's `image` is currently `null` (rendering the vector `JerseyGraphic` fallback): the product photos used earlier were soccer-kit mockups sourced before the group's Phase 1 concept was finalized as NFL apparel, so they no longer fit and were pulled rather than left inaccurate. Drop real NFL-appropriate product photos into `public/products/` and set the matching `image` field to switch a product over — no other code changes needed.
+- **Hero background** — an AI-generated athlete/jersey action shot (kept from before the pivot; it's sport-neutral in tone — dark, dramatic, motion-blurred — so it still reads fine for an NFL storefront, but the visible jersey design itself isn't NFL-specific). Swappable the same way via `HERO_BACKGROUND` in `src/data/media.js`.
 - **Admin dashboard** — Overview tab has a 14-day revenue trend (hover/keyboard tooltip), an order-status breakdown, a top-products ranking, and stat tiles with period-over-period deltas, all on mock data; Inventory tab lists the catalog with stock status.
-- **Backend** — not started. Planned as Node/Express + MongoDB (auth, product/catalog, cart/order, and payment services), with GCash/PayPal, EasyParcel PH shipping, and Google OAuth as the main integrations.
+- **Payment methods shown at checkout** — GCash, PayMaya, and Cash on Delivery. Worth double-checking against the group's final choice: the submitted paper names GCash/PayPal in the architecture section (4) but QRPH/PayMaya in Core Platform Features (3) — those two sections don't agree, so this picked the more specific, PH-focused pairing (GCash + PayMaya) rather than guessing which section is authoritative.
+- **Backend** — not started. Planned as Node/Express + MongoDB (auth, product/catalog, cart/order, and payment services), with EasyParcel PH shipping and Google OAuth as further integrations.

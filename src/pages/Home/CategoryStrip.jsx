@@ -8,7 +8,7 @@ export default function CategoryStrip() {
       <div className="wrap">
         <Reveal as="div" className="section-head">
           <h2>Shop by Category</h2>
-          <p>Three lanes, one source &mdash; club football, basketball, and the streetwear that lives outside both.</p>
+          <p>Three lanes, one source &mdash; game-day jerseys, cold-weather layers, and the everyday tops that live outside both.</p>
         </Reveal>
         <div className="cat-grid">
           {categories.map((cat) => (

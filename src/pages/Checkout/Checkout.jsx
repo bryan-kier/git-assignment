@@ -8,8 +8,8 @@ import './Checkout.css';
 // Service) until that exists. References real products by id so the image,
 // name, and price always stay in sync with the catalog.
 const cartItems = [
-  { productId: 'continental-cup-home-kit', size: 'M', qty: 1 },
-  { productId: 'vintage-warmup-track-top', size: 'L', qty: 1 },
+  { productId: 'sunday-showdown-home-jersey', size: 'M', qty: 1 },
+  { productId: 'throwback-vintage-pullover', size: 'L', qty: 1 },
 ]
   .map((line) => {
     const product = products.find((p) => p.id === line.productId);
@@ -20,7 +20,7 @@ const cartItems = [
 const SHIPPING_FEE = 180;
 const PAYMENT_METHODS = [
   { id: 'gcash', label: 'GCash' },
-  { id: 'paypal', label: 'PayPal' },
+  { id: 'paymaya', label: 'PayMaya' },
   { id: 'cod', label: 'Cash on Delivery' },
 ];
 

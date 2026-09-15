@@ -9,18 +9,18 @@ export default function Nav() {
     <header className={`nav ${scrolled ? 'nav--solid' : ''}`}>
       <div className="wrap">
         <Link className="logo" to="/">
-          KIT<span>ROOM</span>
+          100<span>YARD</span>
         </Link>
         <nav>
           <ul className="nav-links">
             <li>
-              <Link to="/">Football Kits</Link>
+              <Link to="/">Team Jerseys</Link>
             </li>
             <li>
-              <Link to="/">Basketball Jerseys</Link>
+              <Link to="/">Hoodies &amp; Fleece</Link>
             </li>
             <li>
-              <Link to="/">Streetwear</Link>
+              <Link to="/">Tees &amp; Tops</Link>
             </li>
             <li>
               <Link to="/">Pre-Orders</Link>

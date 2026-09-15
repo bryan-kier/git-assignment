@@ -15,7 +15,7 @@ export default function ProductDetail() {
     return (
       <main className="wrap simple-page">
         <p className="eyebrow">Not Found</p>
-        <h1>We couldn&apos;t find that kit.</h1>
+        <h1>We couldn&apos;t find that item.</h1>
         <p className="simple-note">It may have sold out permanently, or the link is off.</p>
         <Link to="/" className="btn btn-primary">
           Back to Homepage
@@ -66,7 +66,7 @@ export default function ProductDetail() {
           </div>
 
           <button type="button" className="btn btn-primary pdp-add">
-            {product.stock === 'preorder' ? 'Pre-Order This Kit' : 'Add to Cart'}
+            {product.stock === 'preorder' ? 'Pre-Order This Item' : 'Add to Cart'}
           </button>
 
           <dl className="pdp-meta">

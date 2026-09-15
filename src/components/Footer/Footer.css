@@ -55,15 +55,6 @@ footer {
   font-size: 0.78rem;
   color: var(--text-faint);
 }
-.foot-bottom .placeholder-note {
-  color: var(--warning);
-  border: 1px dashed var(--warning);
-  border-radius: 999px;
-  padding: 4px 12px;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
 
 @media (max-width: 980px) {
   .foot-grid {
