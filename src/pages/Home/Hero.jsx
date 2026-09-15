@@ -1,17 +1,13 @@
-import JerseyGraphic from '../../components/JerseyGraphic/JerseyGraphic';
 import { useParallax } from '../../hooks/useParallax';
-import { HERO_IMAGE } from '../../data/media';
-import heroBg from '../../assets/hero-bg.svg';
+import { HERO_BACKGROUND } from '../../data/media';
 import './Hero.css';
 
 export default function Hero() {
-  const jersey1Ref = useParallax(0.12);
-  const jersey2Ref = useParallax(0.22);
   const badgeRef = useParallax(0.06);
 
   return (
     <section className="hero">
-      <div className="hero-bg" aria-hidden="true" style={{ backgroundImage: `url(${heroBg})` }} />
+      <div className="hero-bg" aria-hidden="true" style={{ '--hero-img': `url(${HERO_BACKGROUND})` }} />
       <div className="hero-ghost" aria-hidden="true">
         KITROOM
       </div>
@@ -52,28 +48,16 @@ export default function Hero() {
             </div>
           </div>
         </div>
-        <div className="hero-visual">
-          {HERO_IMAGE ? (
-            <img className="hero-photo" src={HERO_IMAGE} alt="Featured kit" />
-          ) : (
-            <>
-              <div className="hero-jersey-1" ref={jersey1Ref}>
-                <JerseyGraphic pattern="diagonal" fillA="var(--surface-3)" fillB="var(--bg-raised)" number="7" />
-              </div>
-              <div className="hero-jersey-2" ref={jersey2Ref}>
-                <JerseyGraphic pattern="panel" fillA="var(--accent-hover)" fillB="var(--accent-dim)" number="9" />
-              </div>
-            </>
-          )}
-          <div className="hero-badge" ref={badgeRef}>
-            <span className="dot"></span>
-            <div>
-              <strong>Derby Night Kit</strong>
-              <span>Restocked 2 hours ago</span>
-            </div>
-          </div>
+      </div>
+
+      <div className="hero-badge" ref={badgeRef}>
+        <span className="dot"></span>
+        <div>
+          <strong>Derby Night Kit</strong>
+          <span>Restocked 2 hours ago</span>
         </div>
       </div>
+
       <div className="scroll-cue">
         <span>Scroll</span>
         <span className="line"></span>
