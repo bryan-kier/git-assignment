@@ -1,5 +1,10 @@
-# Hero image
+# Hero background
 
-Drop a hero photo here (e.g. `hero.jpg`), then set `HERO_IMAGE` in `frontend/src/data/media.js` to
-`/hero/<filename>` — the homepage hero will render it instead of the vector jersey fallback
-automatically. No code changes needed beyond that one field.
+`hero-athlete.png` is the current hero background, referenced by `HERO_BACKGROUND` in
+`src/data/media.js` (set via the `publicAsset()` helper). It renders full-bleed behind the
+homepage hero copy, with a CSS scrim gradient over it for text contrast.
+
+`hero-jerseys-only.png` is a generated variant kept here unused, in case it's useful elsewhere.
+
+To replace the background: drop a new file in here and point `HERO_BACKGROUND` at it via
+`publicAsset('hero/<filename>')`. No other code changes needed.

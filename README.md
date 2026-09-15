@@ -8,7 +8,7 @@ React front-end only for now — no backend yet (see below for the planned archi
 
 - React 19 + React Router, built with Vite
 - Plain CSS with a shared design-token system (`src/styles/tokens.css`)
-- Mock product data (`src/data/products.js`) standing in for a future Product & Catalog API
+- Mock product and analytics data (`src/data/`) standing in for a future Product/Catalog and Order API
 
 ## Getting started
 
@@ -23,19 +23,25 @@ Other scripts: `npm run build` (production build), `npm run lint` (oxlint), `npm
 
 ```
 src/
-  components/   Nav, Footer, ProductCard, the shared JerseyGraphic SVG render, Reveal (scroll-in wrapper)
-  pages/        Home (hero, categories, featured drops, trust section, newsletter),
-                ProductDetail, Checkout, Admin
+  components/   Nav (fixed/overlaid), Footer, ProductCard, the shared JerseyGraphic SVG
+                render (fallback for any product without a real photo), Reveal (scroll-in wrapper)
+  pages/
+    Home/       hero, category strip, featured drops, trust section, newsletter
+    ProductDetail/, Checkout/, Admin/  (Admin/ also has RevenueChart, OrderStatusBreakdown,
+                                        TopProducts — the dashboard's analytics widgets)
   hooks/        useScrolled, useParallax, useReveal
-  data/         mock products + the HERO_IMAGE / product image config
+  data/         products.js (catalog), media.js (hero background), analytics.js (mock
+                revenue/order/stat data for the dashboard)
+  lib/          publicAsset.js — base-URL-aware helper for public/ image paths
   styles/       design tokens and shared page styles
 public/
-  products/     drop real product photos here (see the README inside)
-  hero/         drop a real hero photo here (see the README inside)
+  products/     real product photos, referenced by each product's `image` field in products.js
+  hero/         the hero background photo, referenced by HERO_BACKGROUND in media.js
 ```
 
 ## Status
 
-- **Homepage, Product Detail, Checkout, Admin** — all built and navigable. Homepage is full-fidelity (scroll-driven hero, parallax, animated reveals); the other three are intentionally simpler for now.
-- **Product imagery** — every product/hero image currently renders as a vector jersey graphic (`JerseyGraphic`); dropping a real photo into `public/products/` or `public/hero/` and setting the corresponding `image` field switches it over automatically, no code changes needed.
+- **Homepage, Product Detail, Checkout, Admin** — all built and navigable. Homepage is full-fidelity (fixed overlaid nav, full-bleed hero background, parallax, scroll-reveal animations); the other three are intentionally simpler for now.
+- **Product & hero imagery** — real photos for all six products and the hero background. `JerseyGraphic` (an SVG jersey render) is the automatic fallback for any product left with `image: null`.
+- **Admin dashboard** — Overview tab has a 14-day revenue trend (hover/keyboard tooltip), an order-status breakdown, a top-products ranking, and stat tiles with period-over-period deltas, all on mock data; Inventory tab lists the catalog with stock status.
 - **Backend** — not started. Planned as Node/Express + MongoDB (auth, product/catalog, cart/order, and payment services), with GCash/PayPal, EasyParcel PH shipping, and Google OAuth as the main integrations.
