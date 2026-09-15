@@ -10,6 +10,7 @@ export default function Footer() {
             <Link className="logo" to="/">
               100<span>YARD</span>
             </Link>
+            <p className="foot-tagline">Built for the Bowl.</p>
             <p>NFL apparel, sourced overseas and delivered across the Philippines — so you don't have to be the one importing it.</p>
           </div>
           <div className="foot-col">

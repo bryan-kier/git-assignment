@@ -21,6 +21,7 @@ export default function Hero() {
             <br />
             <span className="accent-line">DOESN&apos;T STOCK.</span>
           </h1>
+          <p className="hero-tagline">Built for the Bowl.</p>
           <p className="hero-sub">
             We source NFL jerseys, hoodies, and game-day tops straight from overseas sellers &mdash; so you
             don&apos;t have to bid on a stranger&apos;s auction or gamble on customs yourself.
