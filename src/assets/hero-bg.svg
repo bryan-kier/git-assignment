@@ -1,0 +1,34 @@
+<svg width="1600" height="700" viewBox="0 0 1600 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e5163f" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#e5163f" stop-opacity="0" />
+    </radialGradient>
+    <path id="jersey" d="M92,2 Q120,26 148,2 L168,10 L205,6 L236,58 L198,82 L198,296 L42,296 L42,82 L4,58 L35,6 L72,10 Z" />
+  </defs>
+
+  <ellipse cx="1180" cy="160" rx="520" ry="420" fill="url(#glow)" />
+
+  <!-- motion streaks -->
+  <g stroke="none">
+    <rect x="0" y="0" width="620" height="7" rx="3.5" fill="#e5163f" opacity="0.16" transform="translate(760,560) rotate(-24)" />
+    <rect x="0" y="0" width="420" height="5" rx="2.5" fill="#f4efe9" opacity="0.07" transform="translate(880,480) rotate(-24)" />
+    <rect x="0" y="0" width="340" height="5" rx="2.5" fill="#e5163f" opacity="0.14" transform="translate(1020,620) rotate(-24)" />
+    <rect x="0" y="0" width="260" height="4" rx="2" fill="#f4efe9" opacity="0.06" transform="translate(150,120) rotate(-24)" />
+  </g>
+
+  <!-- large graphite jersey, bleeding off the top-right corner -->
+  <g transform="translate(1250,110) rotate(18) scale(3.3) translate(-120,-150)">
+    <use href="#jersey" fill="#241d21" />
+  </g>
+
+  <!-- medium dim-crimson jersey, bleeding off the bottom-left corner -->
+  <g transform="translate(90,650) rotate(-14) scale(2.7) translate(-120,-150)">
+    <use href="#jersey" fill="#591320" opacity="0.55" />
+  </g>
+
+  <!-- small bright accent fragment, cropped by the right edge -->
+  <g transform="translate(1560,380) rotate(10) scale(1.9) translate(-120,-150)">
+    <use href="#jersey" fill="#e5163f" opacity="0.32" />
+  </g>
+</svg>

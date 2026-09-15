@@ -1,6 +1,7 @@
 import JerseyGraphic from '../../components/JerseyGraphic/JerseyGraphic';
 import { useParallax } from '../../hooks/useParallax';
 import { HERO_IMAGE } from '../../data/media';
+import heroBg from '../../assets/hero-bg.svg';
 import './Hero.css';
 
 export default function Hero() {
@@ -10,6 +11,7 @@ export default function Hero() {
 
   return (
     <section className="hero">
+      <div className="hero-bg" aria-hidden="true" style={{ backgroundImage: `url(${heroBg})` }} />
       <div className="hero-ghost" aria-hidden="true">
         KITROOM
       </div>
