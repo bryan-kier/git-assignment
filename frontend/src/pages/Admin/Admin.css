@@ -1,0 +1,82 @@
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.admin-tabs button {
+  background: none;
+  border: none;
+  color: var(--text-faint);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 10px 4px;
+  margin-right: 20px;
+  border-bottom: 2px solid transparent;
+}
+.admin-tabs button:hover {
+  color: var(--text);
+}
+.admin-tabs button.is-active {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.stat-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  font-size: 0.76rem;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.admin-table-wrap {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow-x: auto;
+  background: var(--surface);
+}
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.admin-table th,
+.admin-table td {
+  text-align: left;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-soft);
+  white-space: nowrap;
+}
+.admin-table th {
+  color: var(--text-faint);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 860px) {
+  .admin-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

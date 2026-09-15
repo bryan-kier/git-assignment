@@ -1,0 +1,98 @@
+.drop-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.drop-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border);
+  box-shadow: 0 24px 50px -28px rgba(0, 0, 0, 0.7);
+}
+.drop-visual {
+  height: 220px;
+  background: var(--surface-2);
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.drop-visual .jersey-render {
+  width: 132px;
+  height: 158px;
+}
+.stock-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 999px;
+  z-index: 1;
+}
+.stock-in-stock {
+  background: var(--success-soft);
+  color: var(--success);
+}
+.stock-low {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+.stock-preorder {
+  background: var(--info-soft);
+  color: var(--info);
+}
+.drop-info {
+  padding: 18px 20px 22px;
+}
+.drop-info .tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+}
+.drop-info h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: none;
+  margin-top: 6px;
+}
+.drop-info h3 a:hover {
+  color: var(--accent);
+}
+.drop-info .price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+.drop-info .price {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-variant-numeric: tabular-nums;
+}
+.drop-info .price small {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  font-weight: 600;
+}
+.add-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.add-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}

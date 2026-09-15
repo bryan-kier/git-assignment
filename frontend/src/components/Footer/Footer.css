@@ -1,0 +1,77 @@
+footer {
+  border-top: 1px solid var(--border-soft);
+  padding-top: 72px;
+  padding-bottom: 40px;
+}
+.foot-grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr);
+  gap: 40px;
+  padding-bottom: 48px;
+}
+.foot-brand .logo {
+  margin-bottom: 14px;
+  display: inline-flex;
+}
+.foot-brand .logo span {
+  color: var(--accent);
+}
+.foot-brand p {
+  color: var(--text-muted);
+  max-width: 32ch;
+  font-size: 0.9rem;
+}
+.foot-col h4 {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+.foot-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.foot-col a {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+.foot-col a:hover {
+  color: var(--text);
+}
+.foot-bottom {
+  border-top: 1px solid var(--border-soft);
+  padding-top: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+.foot-bottom .placeholder-note {
+  color: var(--warning);
+  border: 1px dashed var(--warning);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 980px) {
+  .foot-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 620px) {
+  .foot-grid {
+    grid-template-columns: 1fr;
+  }
+}

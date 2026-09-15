@@ -1,0 +1,42 @@
+/* Shared baseline for the lower-fidelity Phase 6 screens (PDP, Checkout,
+   Admin) — same design tokens as the homepage, plainer layout. */
+.simple-page {
+  padding-block: 64px 120px;
+  min-height: 60vh;
+}
+.simple-page h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-top: 12px;
+}
+.simple-note {
+  color: var(--text-muted);
+  max-width: 60ch;
+  margin: 14px 0 28px;
+}
+.tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+}
+.stock-pill {
+  display: inline-flex;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+.stock-in-stock {
+  background: var(--success-soft);
+  color: var(--success);
+}
+.stock-low {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+.stock-preorder {
+  background: var(--info-soft);
+  color: var(--info);
+}
