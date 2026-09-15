@@ -41,7 +41,7 @@ export const products = [
     pattern: 'diagonal',
     fillA: 'var(--surface-3)',
     fillB: 'var(--bg-raised)',
-    image: publicAsset('products/sunday-showdown-home-jersey.jpeg'),
+    image: publicAsset('products/sunday-showdown-home-jersey.avif'),
   },
   {
     id: 'primetime-away-jersey',
@@ -54,7 +54,7 @@ export const products = [
     pattern: 'panel',
     fillA: 'var(--accent-hover)',
     fillB: 'var(--accent-dim)',
-    image: publicAsset('products/primetime-away-jersey.webp'),
+    image: publicAsset('products/primetime-away-jersey.avif'),
   },
   {
     id: 'endzone-pullover-hoodie',
@@ -67,7 +67,7 @@ export const products = [
     pattern: 'yoke',
     fillA: 'var(--surface-2)',
     fillB: 'var(--surface-3)',
-    image: publicAsset('products/endzone-pullover-hoodie.webp'),
+    image: publicAsset('products/endzone-pullover-hoodie.avif'),
   },
   {
     id: 'throwback-vintage-pullover',
@@ -80,7 +80,7 @@ export const products = [
     pattern: 'diagonal',
     fillA: 'var(--surface-2)',
     fillB: 'var(--bg-raised)',
-    image: publicAsset('products/throwback-vintage-pullover.jpeg'),
+    image: publicAsset('products/throwback-vintage-pullover.avif'),
   },
   {
     id: 'franchise-graphic-tee',
@@ -93,7 +93,7 @@ export const products = [
     pattern: 'panel',
     fillA: 'var(--surface-3)',
     fillB: 'var(--bg-raised)',
-    image: publicAsset('products/franchise-graphic-tee.jpeg'),
+    image: publicAsset('products/franchise-graphic-tee.avif'),
   },
   {
     id: 'wild-card-graphic-tee',
@@ -106,7 +106,7 @@ export const products = [
     pattern: 'yoke',
     fillA: 'var(--surface-2)',
     fillB: 'var(--accent-dim)',
-    image: publicAsset('products/wild-card-graphic-tee.jpeg'),
+    image: publicAsset('products/wild-card-graphic-tee.avif'),
   },
 ];
 
