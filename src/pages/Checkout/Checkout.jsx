@@ -1,14 +1,21 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { formatPHP } from '../../data/products';
+import JerseyGraphic from '../../components/JerseyGraphic/JerseyGraphic';
+import { products, formatPHP } from '../../data/products';
 import './Checkout.css';
 
 // Mock cart — stands in for the server-side cart (Phase 4 Order & Cart
-// Service) until that exists.
+// Service) until that exists. References real products by id so the image,
+// name, and price always stay in sync with the catalog.
 const cartItems = [
-  { id: 'continental-cup-home-kit', name: 'Continental Cup Home Kit', size: 'M', qty: 1, price: 3450 },
-  { id: 'vintage-warmup-track-top', name: 'Vintage Warm-Up Track Top', size: 'L', qty: 1, price: 2600 },
-];
+  { productId: 'continental-cup-home-kit', size: 'M', qty: 1 },
+  { productId: 'vintage-warmup-track-top', size: 'L', qty: 1 },
+]
+  .map((line) => {
+    const product = products.find((p) => p.id === line.productId);
+    return product ? { ...line, product } : null;
+  })
+  .filter(Boolean);
 
 const SHIPPING_FEE = 180;
 const PAYMENT_METHODS = [
@@ -19,7 +26,7 @@ const PAYMENT_METHODS = [
 
 export default function Checkout() {
   const [payment, setPayment] = useState('gcash');
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const subtotal = cartItems.reduce((sum, item) => sum + item.product.price * item.qty, 0);
   const total = subtotal + SHIPPING_FEE;
 
   return (
@@ -37,14 +44,28 @@ export default function Checkout() {
             <h2>Order Summary</h2>
             <ul className="cart-list">
               {cartItems.map((item) => (
-                <li key={item.id} className="cart-row">
-                  <div>
-                    <strong>{item.name}</strong>
+                <li key={item.productId} className="cart-row">
+                  <Link to={`/product/${item.product.id}`} className="cart-thumb">
+                    {item.product.image ? (
+                      <img src={item.product.image} alt={item.product.name} />
+                    ) : (
+                      <JerseyGraphic
+                        pattern={item.product.pattern}
+                        fillA={item.product.fillA}
+                        fillB={item.product.fillB}
+                        number={item.product.number}
+                      />
+                    )}
+                  </Link>
+                  <div className="cart-info">
+                    <Link to={`/product/${item.product.id}`} className="cart-name">
+                      {item.product.name}
+                    </Link>
                     <span className="cart-meta">
                       Size {item.size} &middot; Qty {item.qty}
                     </span>
                   </div>
-                  <span>{formatPHP(item.price * item.qty)}</span>
+                  <span className="cart-price">{formatPHP(item.product.price * item.qty)}</span>
                 </li>
               ))}
             </ul>
