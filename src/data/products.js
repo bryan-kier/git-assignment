@@ -37,7 +37,7 @@ export const products = [
     pattern: 'diagonal',
     fillA: 'var(--surface-3)',
     fillB: 'var(--bg-raised)',
-    image: null,
+    image: '/products/continental-cup-home-kit.jpeg',
   },
   {
     id: 'derby-night-away-kit',
@@ -49,7 +49,7 @@ export const products = [
     pattern: 'panel',
     fillA: 'var(--accent-hover)',
     fillB: 'var(--accent-dim)',
-    image: null,
+    image: '/products/derby-night-away-kit.webp',
   },
   {
     id: 'city-rivals-third-kit',
@@ -61,7 +61,7 @@ export const products = [
     pattern: 'yoke',
     fillA: 'var(--surface-2)',
     fillB: 'var(--surface-3)',
-    image: null,
+    image: '/products/city-rivals-third-kit.webp',
   },
   {
     id: 'classic-retro-pullover',
@@ -73,7 +73,7 @@ export const products = [
     pattern: 'diagonal',
     fillA: 'var(--surface-2)',
     fillB: 'var(--bg-raised)',
-    image: null,
+    image: '/products/classic-retro-pullover.jpeg',
   },
   {
     id: 'player-issue-practice-jersey',
@@ -85,7 +85,7 @@ export const products = [
     pattern: 'panel',
     fillA: 'var(--surface-3)',
     fillB: 'var(--bg-raised)',
-    image: null,
+    image: '/products/player-issue-practice-jersey.jpeg',
   },
   {
     id: 'vintage-warmup-track-top',
@@ -97,7 +97,7 @@ export const products = [
     pattern: 'yoke',
     fillA: 'var(--surface-2)',
     fillB: 'var(--accent-dim)',
-    image: null,
+    image: '/products/vintage-warmup-track-top.jpeg',
   },
 ];
 
