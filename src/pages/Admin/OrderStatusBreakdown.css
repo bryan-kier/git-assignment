@@ -1,0 +1,59 @@
+.status-breakdown {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  padding: 24px;
+  height: 100%;
+}
+.status-breakdown .chart-head p {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.status-list {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.status-row {
+  display: grid;
+  grid-template-columns: 76px 1fr 26px;
+  align-items: center;
+  gap: 12px;
+}
+.status-name {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.status-row.is-emphasis .status-name {
+  color: var(--text);
+  font-weight: 700;
+}
+.status-track {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--border-soft);
+  overflow: hidden;
+}
+.status-fill {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: var(--text-faint);
+}
+.status-row.is-emphasis .status-fill {
+  background: var(--accent);
+}
+.status-count {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+}
+.status-row.is-emphasis .status-count {
+  color: var(--text);
+}

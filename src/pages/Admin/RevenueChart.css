@@ -1,0 +1,92 @@
+.revenue-chart {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  padding: 24px 24px 12px;
+}
+.chart-head-value {
+  text-align: right;
+  flex-shrink: 0;
+}
+.chart-head-value strong {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+.chart-head-value span {
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.chart-svg-wrap {
+  position: relative;
+}
+.chart-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.chart-svg:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+.chart-grid {
+  stroke: var(--border-soft);
+  stroke-width: 1;
+}
+.chart-axis-label {
+  fill: var(--text-faint);
+  font-family: var(--font-body);
+  font-size: 11px;
+}
+.chart-area {
+  fill: var(--accent);
+  fill-opacity: 0.1;
+  stroke: none;
+}
+.chart-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.chart-end-dot {
+  fill: var(--accent);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+.chart-crosshair {
+  stroke: var(--text-faint);
+  stroke-width: 1;
+}
+.chart-active-dot {
+  fill: var(--accent);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+
+.chart-tooltip {
+  position: absolute;
+  transform: translate(-50%, -120%);
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 12px;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 16px 32px -16px rgba(0, 0, 0, 0.7);
+}
+.chart-tooltip strong {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+.chart-tooltip span {
+  font-size: 0.72rem;
+  color: var(--text-faint);
+}
