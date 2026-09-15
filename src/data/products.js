@@ -1,9 +1,11 @@
+import { publicAsset } from '../lib/publicAsset';
+
 // Mock catalog data. No backend yet — this stands in for the Product & Catalog API
 // described in the Phase 4 architecture doc until that service exists.
 //
 // Each product's `image` is null until a real photo is dropped into
-// frontend/public/products/ (see the README there) — components fall back to
-// the vector JerseyGraphic render whenever `image` is null.
+// public/products/ (see the README there) — components fall back to the
+// vector JerseyGraphic render whenever `image` is null.
 
 export const categories = [
   {
@@ -37,7 +39,7 @@ export const products = [
     pattern: 'diagonal',
     fillA: 'var(--surface-3)',
     fillB: 'var(--bg-raised)',
-    image: '/products/continental-cup-home-kit.jpeg',
+    image: publicAsset('products/continental-cup-home-kit.jpeg'),
   },
   {
     id: 'derby-night-away-kit',
@@ -49,7 +51,7 @@ export const products = [
     pattern: 'panel',
     fillA: 'var(--accent-hover)',
     fillB: 'var(--accent-dim)',
-    image: '/products/derby-night-away-kit.webp',
+    image: publicAsset('products/derby-night-away-kit.webp'),
   },
   {
     id: 'city-rivals-third-kit',
@@ -61,7 +63,7 @@ export const products = [
     pattern: 'yoke',
     fillA: 'var(--surface-2)',
     fillB: 'var(--surface-3)',
-    image: '/products/city-rivals-third-kit.webp',
+    image: publicAsset('products/city-rivals-third-kit.webp'),
   },
   {
     id: 'classic-retro-pullover',
@@ -73,7 +75,7 @@ export const products = [
     pattern: 'diagonal',
     fillA: 'var(--surface-2)',
     fillB: 'var(--bg-raised)',
-    image: '/products/classic-retro-pullover.jpeg',
+    image: publicAsset('products/classic-retro-pullover.jpeg'),
   },
   {
     id: 'player-issue-practice-jersey',
@@ -85,7 +87,7 @@ export const products = [
     pattern: 'panel',
     fillA: 'var(--surface-3)',
     fillB: 'var(--bg-raised)',
-    image: '/products/player-issue-practice-jersey.jpeg',
+    image: publicAsset('products/player-issue-practice-jersey.jpeg'),
   },
   {
     id: 'vintage-warmup-track-top',
@@ -97,7 +99,7 @@ export const products = [
     pattern: 'yoke',
     fillA: 'var(--surface-2)',
     fillB: 'var(--accent-dim)',
-    image: '/products/vintage-warmup-track-top.jpeg',
+    image: publicAsset('products/vintage-warmup-track-top.jpeg'),
   },
 ];
 
