@@ -38,11 +38,7 @@ export default function Admin() {
 
   return (
     <main className="wrap simple-page admin">
-      <p className="eyebrow">Admin</p>
       <h1>Dashboard</h1>
-      <p className="simple-note">
-        Placeholder data — real numbers arrive once the Order and Product APIs (Phase 4) are wired up.
-      </p>
 
       <div className="admin-tabs">
         <button type="button" className={tab === 'overview' ? 'is-active' : ''} onClick={() => setTab('overview')}>
