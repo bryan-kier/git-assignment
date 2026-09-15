@@ -32,7 +32,11 @@ export default function ProductDetail() {
       <div className="pdp-grid">
         <div className="pdp-visual">
           <span className={`stock-pill stock-${product.stock}`}>{stockLabels[product.stock]}</span>
-          <JerseyGraphic pattern={product.pattern} fillA={product.fillA} fillB={product.fillB} number={product.number} />
+          {product.image ? (
+            <img className="pdp-photo" src={product.image} alt={product.name} />
+          ) : (
+            <JerseyGraphic pattern={product.pattern} fillA={product.fillA} fillB={product.fillB} number={product.number} />
+          )}
         </div>
         <div className="pdp-info">
           <span className="tag">{product.category}</span>

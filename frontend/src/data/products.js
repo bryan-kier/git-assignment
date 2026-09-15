@@ -1,5 +1,9 @@
 // Mock catalog data. No backend yet — this stands in for the Product & Catalog API
 // described in the Phase 4 architecture doc until that service exists.
+//
+// Each product's `image` is null until a real photo is dropped into
+// frontend/public/products/ (see the README there) — components fall back to
+// the vector JerseyGraphic render whenever `image` is null.
 
 export const categories = [
   {
@@ -33,6 +37,7 @@ export const products = [
     pattern: 'diagonal',
     fillA: 'var(--surface-3)',
     fillB: 'var(--bg-raised)',
+    image: null,
   },
   {
     id: 'derby-night-away-kit',
@@ -44,6 +49,7 @@ export const products = [
     pattern: 'panel',
     fillA: 'var(--accent-hover)',
     fillB: 'var(--accent-dim)',
+    image: null,
   },
   {
     id: 'city-rivals-third-kit',
@@ -55,6 +61,7 @@ export const products = [
     pattern: 'yoke',
     fillA: 'var(--surface-2)',
     fillB: 'var(--surface-3)',
+    image: null,
   },
   {
     id: 'classic-retro-pullover',
@@ -66,6 +73,7 @@ export const products = [
     pattern: 'diagonal',
     fillA: 'var(--surface-2)',
     fillB: 'var(--bg-raised)',
+    image: null,
   },
   {
     id: 'player-issue-practice-jersey',
@@ -77,6 +85,7 @@ export const products = [
     pattern: 'panel',
     fillA: 'var(--surface-3)',
     fillB: 'var(--bg-raised)',
+    image: null,
   },
   {
     id: 'vintage-warmup-track-top',
@@ -88,6 +97,7 @@ export const products = [
     pattern: 'yoke',
     fillA: 'var(--surface-2)',
     fillB: 'var(--accent-dim)',
+    image: null,
   },
 ];
 

@@ -8,7 +8,11 @@ export default function ProductCard({ product }) {
     <article className="drop-card">
       <Link to={`/product/${product.id}`} className="drop-visual">
         <span className={`stock-pill stock-${product.stock}`}>{stockLabels[product.stock]}</span>
-        <JerseyGraphic pattern={product.pattern} fillA={product.fillA} fillB={product.fillB} number={product.number} />
+        {product.image ? (
+          <img className="drop-photo" src={product.image} alt={product.name} />
+        ) : (
+          <JerseyGraphic pattern={product.pattern} fillA={product.fillA} fillB={product.fillB} number={product.number} />
+        )}
       </Link>
       <div className="drop-info">
         <span className="tag">{product.category}</span>

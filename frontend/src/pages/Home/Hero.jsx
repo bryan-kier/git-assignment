@@ -1,5 +1,6 @@
 import JerseyGraphic from '../../components/JerseyGraphic/JerseyGraphic';
 import { useParallax } from '../../hooks/useParallax';
+import { HERO_IMAGE } from '../../data/media';
 import './Hero.css';
 
 export default function Hero() {
@@ -50,12 +51,18 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero-visual">
-          <div className="hero-jersey-1" ref={jersey1Ref}>
-            <JerseyGraphic pattern="diagonal" fillA="var(--surface-3)" fillB="var(--bg-raised)" number="7" />
-          </div>
-          <div className="hero-jersey-2" ref={jersey2Ref}>
-            <JerseyGraphic pattern="panel" fillA="var(--accent-hover)" fillB="var(--accent-dim)" number="9" />
-          </div>
+          {HERO_IMAGE ? (
+            <img className="hero-photo" src={HERO_IMAGE} alt="Featured kit" />
+          ) : (
+            <>
+              <div className="hero-jersey-1" ref={jersey1Ref}>
+                <JerseyGraphic pattern="diagonal" fillA="var(--surface-3)" fillB="var(--bg-raised)" number="7" />
+              </div>
+              <div className="hero-jersey-2" ref={jersey2Ref}>
+                <JerseyGraphic pattern="panel" fillA="var(--accent-hover)" fillB="var(--accent-dim)" number="9" />
+              </div>
+            </>
+          )}
           <div className="hero-badge" ref={badgeRef}>
             <span className="dot"></span>
             <div>
